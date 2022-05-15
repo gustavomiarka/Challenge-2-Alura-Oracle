@@ -41,6 +41,12 @@
     color: black;
 }
 
+.link-word2 {
+    margin-top: 40px;
+    text-decoration: none;
+    color: black;
+}
+
 @media screen and (max-width: 450px) {
     .button {
         flex-direction: column;

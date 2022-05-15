@@ -14,18 +14,20 @@
                 <a class="alura" href="https://www.aluracursos.com/" target="_blank" title="Alura LATAM"><img src="img/alura.jpg" class="alura"></a>
             </div>
             <div class="input">
-                <input type="text" value="Ingrese una palabra" class="input-word"></input>
+                <input type="text" value="ingrese palabra" required class="input-word"></input>
             </div>
             <div class="group-button2">
-                <p>Letras en mayuscula y sin acentos</p>
+                <p>Palabra en mayúscula y sin acentos</p>
                 <div class="button">
-                    <a><button type="button" class="boton2"><span>Guardar y empezar</span></button></a>
-                    <a href="index.html" class="link-word"><button type="button" class="boton2">Cancelar</button></a>
+                    <a href="#"><button type="button" class="boton2" id="agregar"><span>Guardar</span></button></a>
+                    <a href="index.html" class="link-word"><button type="button" class="boton2" id="cancel">Cancelar</button></a>
                 </div>
+                <a href="pantallajuego.html" class="link-word2"><button type="button" class="boton" id="init"><span>Iniciar Juego</span></button></a>
             </div>
         </main>
         <footer>
             <p>Pagina diseñada por Gustavo Ezequiel Miarka</p>
         </footer>
+        <script src="js/agregarpalabra.js"></script>
     </body>
 </html>

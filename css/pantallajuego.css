@@ -1,19 +1,15 @@
-main {
-    height: 700px;
+body {
+    background-color: white;
+    overflow-y: scroll;
 }
 
-circle {
-    position: absolute;
-    width: 63px;
-    height: 63px;
-    left: 461.67px;
-    top: 285px;
-    background-color: beige;
+main{
+    height: 105vh;
 }
 
 .grafico {
     width: 294px;
-    height: 360px;
+    height: 310px;
     margin: 0 auto;
 }
 
@@ -23,6 +19,7 @@ circle {
     align-content: center;
     align-items: center;
     justify-content: center;
+    margin-top: 30px;
     
 }
 
@@ -34,4 +31,29 @@ circle {
     margin-bottom: 10px;
     margin-right: 2px;
     cursor: pointer;
+}
+
+.caja-princ {
+    height: 50px;
+    width: 200px;
+    margin: 1px auto;
+    border: 1px solid;
+}
+
+.caja-sec {
+    height: 30px;
+    width: 150px;
+    margin: 5px auto;
+    border: 1px solid;
+}
+
+footer{
+    position:static !important;
+}
+
+@media screen and (max-width: 450px) {
+
+    .group-button3 {
+        flex-direction: column;
+    }
 }
