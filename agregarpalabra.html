@@ -6,21 +6,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/normalize.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/agregarpalabra.css">
     </head>
     <body>
         <main>
             <div class="vector">
                 <a class="alura" href="https://www.aluracursos.com/" target="_blank" title="Alura LATAM"><img src="img/alura.jpg" class="alura"></a>
             </div>
-            <input type="text" value="Ingrese una palabra"></input>
-            <div>
+            <div class="input">
+                <input type="text" value="Ingrese una palabra" class="input-word"></input>
+            </div>
+            <div class="group-button2">
                 <p>Letras en mayuscula y sin acentos</p>
-                <button type="button"><span>Guardar y empezar</span></button>
-                <button type="button"><span>Cancelar</span></button>
+                <div class="button">
+                    <a><button type="button" class="boton2"><span>Guardar y empezar</span></button></a>
+                    <a href="index.html" class="link-word"><button type="button" class="boton2">Cancelar</button></a>
+                </div>
             </div>
         </main>
         <footer>
-            <p>Juego diseñado por Gustavo Ezequiel Miarka</p>
+            <p>Pagina diseñada por Gustavo Ezequiel Miarka</p>
         </footer>
     </body>
 </html>

@@ -1,16 +1,45 @@
 body {
-    width: 1200px;
-    height: 800px;
     background-color: #045;
+    overflow-x: hidden;
 }
 
 .alura {
     width: 80px;
     height: 80px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.group-button >p {
+    font-size:12px;
+}
+.group-button {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-top: 10%;
 }
 
 .boton {
     display: block;
     border-radius: 24px;
-    width: 180px;
+    width: 200px;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.link-word {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    display: flex;
+    background-color: aqua;
+    padding: 10px 0px;
+    justify-content: center;
+    position:fixed;
+    bottom:0px;
+    width: 100%;
 }

@@ -1,0 +1,48 @@
+
+.input {
+    display: flex;
+    justify-content: center;
+}
+
+.input-word {
+    margin-top: 5%;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size: 20px;
+    width: 250px;
+}
+
+.group-button2 {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.boton2 {
+    display: inline-block;
+    border-radius: 24px;
+    width: 200px;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.link-word {
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (max-width: 450px) {
+    .button {
+        flex-direction: column;
+    }
+}
