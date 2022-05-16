@@ -1,5 +1,7 @@
 body {
-    background-color: #045;
+    background-image: url("http://3.bp.blogspot.com/-y_mpQ9LQNL4/UegdhPg8ESI/AAAAAAAAIXw/Y7ub4gmkxnQ/s1600/Descargar%25252BPack%25252BEspectaculares%25252Bfondo%25252Bde%25252Bpaisajes%25252B(409).jpg");
+    background-attachment: fixed;
+    background-size: cover;
     overflow-x: hidden;
 }
 
@@ -15,6 +17,7 @@ main{
 }
 .group-button >p {
     font-size:12px;
+    color:beige;
 }
 .group-button {
     display: flex;
@@ -40,10 +43,14 @@ main{
 
 footer {
     display: flex;
-    background-color: aqua;
+    
     padding: 10px 0px;
     justify-content: center;
     position: absolute;
     bottom:0px;
     width: 100%;
+}
+
+.text{
+    color:beige;
 }

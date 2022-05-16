@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-image: url("http://3.bp.blogspot.com/-y_mpQ9LQNL4/UegdhPg8ESI/AAAAAAAAIXw/Y7ub4gmkxnQ/s1600/Descargar%25252BPack%25252BEspectaculares%25252Bfondo%25252Bde%25252Bpaisajes%25252B(409).jpg");
     overflow-y: scroll;
 }
 
@@ -49,6 +49,10 @@ main{
 
 footer{
     position:static !important;
+}
+
+.text{
+    color:beige;
 }
 
 @media screen and (max-width: 450px) {

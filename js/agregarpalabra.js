@@ -1,4 +1,4 @@
-let palabras = ["perro", "gato", "avion", "casa", "pelota"];
+var palabras = ["perro", "gato", "avion", "casa", "pelota"];
 
 function agregarPalabra(){
     let input = document.querySelector("input").value;
