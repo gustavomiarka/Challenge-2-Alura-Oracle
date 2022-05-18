@@ -34,17 +34,36 @@ main{
 }
 
 .caja-princ {
+    display:flex;
     height: 50px;
     width: 200px;
-    margin: 1px auto;
-    border: 1px solid;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.caja-secreto {
+    color:beige;
+    font-size: 60px;
+    letter-spacing: 10px;
 }
 
 .caja-sec {
-    height: 30px;
-    width: 150px;
-    margin: 5px auto;
-    border: 1px solid;
+    display:flex;
+    height: 50px;
+    width: 200px;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+}
+
+.caja-error {
+    color:beige;
+    font-size: 30px;
+    letter-spacing: 10px;
 }
 
 footer{
