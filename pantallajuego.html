@@ -7,6 +7,7 @@
         <link href="css/normalize.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="css/pantallajuego.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="img/favicon-32x32.png">
     </head>
     <body>
         <main>
@@ -28,18 +29,19 @@
                 </svg>
             </div>
             <div>
-                <div class="caja-princ"></div>
-                <div class="caja-sec"></div>
+                <div class="caja-princ">
+                    <span class="caja-secreto"></span>
+                </div>
+                <div class="caja-sec"><span class="caja-error"></span></div>
             </div>
             <div class="group-button3">
-                <a href="pantallajuego.html"><button type="button" class=" boton3"><span>Nuevo Juego</span></button></a>
-                <a href="index.html"><button type="button" class=" boton3"><span>Cancelar</span></button></a>
+                <a href="pantallajuego.html"><button type="button" class=" boton3" id="init" onclick="mostrarEnPantalla()"><span>Nuevo Juego</span></button></a>
+                <a href="index.html"><button type="button" class=" boton3" onclick="confirm('esta seguro que quiere abandonar el juego?')"><span>Cancelar</span></button></a>
             </div>
         </main>
         <footer>
             <p class="text">Pagina diseñada por Gustavo Ezequiel Miarka</p>
         </footer>
-        <script src="js/juego.js"></script>
-        <script src="js/agregarpalabra.js"></script>
+        <script src="js/funciones.js"></script>
     </body>
 </html>

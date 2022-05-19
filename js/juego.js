@@ -1,4 +1,6 @@
 // let palabraConGuiones = secretWord.replace(/./g, " _ ");
+localStorage.setItem("palabras", JSON.stringify(palabras));
+const newLocal = JSON.parse(localStorage.getItem("palabras"));
 
 
 // function selecPalabra(){

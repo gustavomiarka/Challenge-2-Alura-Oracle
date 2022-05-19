@@ -36,7 +36,7 @@ main{
 .caja-princ {
     display:flex;
     height: 50px;
-    width: 200px;
+    width: 300px;
     justify-content: center;
     flex-direction: row;
     align-items: center;
@@ -46,8 +46,7 @@ main{
 
 .caja-secreto {
     color:beige;
-    font-size: 60px;
-    letter-spacing: 10px;
+    font-size: 40px;
 }
 
 .caja-sec {
