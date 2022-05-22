@@ -7,11 +7,11 @@ var palabras = ["PERRO", "GATO", "AVION", "CASA", "PELOTA", "CABALLO", "MESA"];
 
 // declaracion de variables
 var newLocal = JSON.parse(localStorage.getItem("palabras"));
-
+let keyValue;
 let palabra =  newLocal[Math.round(Math.random()*(newLocal).length)];
 let index = 0; 
-let cuerpo = document.getElementsByClassName("cuerpo")
-
+let cuerpo = document.getElementsByClassName("cuerpo");
+let contadorFallos;
 String.prototype.replaceAt=function(index, character) { return this.substr(0, index) + character + this.substr(index+character.length); }
 /*------------------------------------------------------------------------------*/
 
@@ -79,11 +79,9 @@ function salirDelJuego(){
         return window.location.href = 'http://127.0.0.1:5500/index.html';
     } 
 }
-let cancel = document.querySelector("#cancel");
-cancel.addEventListener("click", salirDelJuego);
 /*------------------------------------------------------------------------------*/
 
-var keyValue;
+
 // funcion para verificar letra tecleada
 function validarLetra(){
     document.addEventListener('keydown', (event) => {
@@ -91,11 +89,13 @@ function validarLetra(){
     let regexp = /^[A-Z]+$/g;
     if (regexp.test(keyValue)) {
         console.log(keyValue)
-        // dibujarLetraCorrecta();
-    } else {
-        return alert("caracter no permitido, solo letras");
-        // dibujarLetraIncorrecta();
-    }
+        if(dibujarLetraCorrecta()){
+        mensajeGanador();
+        }else{
+            dibujarHorca();
+            mensajePerdedor();
+        }
+    } 
   });
 };
 /*------------------------------------------------------------------------------*/
@@ -103,29 +103,31 @@ function validarLetra(){
 
 // funcion para comprobar que la letra tecleada sea la correcta
 function dibujarLetraCorrecta(){
-    let palabraSinGuion = document.querySelector(".caja-secreto")
+    let letraCorrecta = document.querySelector(".caja-secreto");
+    let correcto = false;
     for (const i in palabra) {
         if(keyValue == palabra[i]){
             alert("Exito")
-            palabraSinGuion.innerHTML = palabraSinGuion.textContent.replaceAt(i*2, keyValue);
-        }
+            letraCorrecta.innerHTML = letraCorrecta.textContent.replaceAt(i*2, keyValue);
+            correcto = true;
+        } 
     }
+    return correcto;
 }
 /*------------------------------------------------------------------------------*/
 
 
 // funcion para comprobar que la letra tecleada no esta incluida en la palabra secreta
 function dibujarLetraIncorrecta(){
-    let contador = 4;
-    for (const i in palabra) {
-        if(keyValue != palabra[i]){
-            alert("upsss")
-            document.querySelector(".caja-error").innerHTML = document.querySelector(".caja-error").textContent.replaceAt(i, keyValue);
-            contador--;
-        } else {
-            alert("perdiste")
+    let letraIncorrecta = document.querySelector(".caja-error");
+        
+        for(let i=0; i < letraIncorrecta.textContent.length; i++){
+        // if(keyValue < letraIncorrecta.textContent){
+            letraIncorrecta.innerHTML = letraIncorrecta.textContent.replaceAt(i, keyValue);
+        // }
         }
-    }
+        // letraIncorrecta.textContent[i];
+    
 }
 /*------------------------------------------------------------------------------*/
 
@@ -181,6 +183,6 @@ function dibujarHorca(){
     if (index < cuerpo.length) {
         cuerpo.item(index).style.display = "flex";
         index++;
-    }
+    } 
 }
 /*------------------------------------------------------------------------------*/
