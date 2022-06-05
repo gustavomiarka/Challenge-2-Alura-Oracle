@@ -11,7 +11,6 @@ let keyValue;
 let palabra =  newLocal[Math.round(Math.random()*(newLocal).length)];
 let index = 0; 
 let cuerpo = document.getElementsByClassName("cuerpo");
-let contadorFallos;
 String.prototype.replaceAt=function(index, character) { return this.substr(0, index) + character + this.substr(index+character.length); }
 /*------------------------------------------------------------------------------*/
 
@@ -67,8 +66,6 @@ function reemplazarConGuion(){
 function mostrarEnPantalla(){
     document.querySelector(".caja-secreto").innerHTML = reemplazarConGuion();
 }
-// let init = document.querySelector("#init");
-// init.addEventListener("click", mostrarEnPantalla());
 /*------------------------------------------------------------------------------*/
 
 
@@ -92,6 +89,8 @@ function validarLetra(){
         if(dibujarLetraCorrecta()){
         mensajeGanador();
         }else{
+            alert("Entrada incorrecta");
+            dibujarLetraIncorrecta();
             dibujarHorca();
             mensajePerdedor();
         }
@@ -107,7 +106,6 @@ function dibujarLetraCorrecta(){
     let correcto = false;
     for (const i in palabra) {
         if(keyValue == palabra[i]){
-            alert("Exito")
             letraCorrecta.innerHTML = letraCorrecta.textContent.replaceAt(i*2, keyValue);
             correcto = true;
         } 
@@ -120,14 +118,9 @@ function dibujarLetraCorrecta(){
 // funcion para comprobar que la letra tecleada no esta incluida en la palabra secreta
 function dibujarLetraIncorrecta(){
     let letraIncorrecta = document.querySelector(".caja-error");
-        
-        for(let i=0; i < letraIncorrecta.textContent.length; i++){
-        // if(keyValue < letraIncorrecta.textContent){
-            letraIncorrecta.innerHTML = letraIncorrecta.textContent.replaceAt(i, keyValue);
-        // }
-        }
-        // letraIncorrecta.textContent[i];
-    
+    if(index < letraIncorrecta.textContent.length){
+        letraIncorrecta.innerHTML = letraIncorrecta.textContent.replaceAt(index, keyValue);
+    }
 }
 /*------------------------------------------------------------------------------*/
 
@@ -136,7 +129,6 @@ function dibujarLetraIncorrecta(){
 function verificarFinJuego(){
     let perdedor = false
     if(document.querySelector(".caja-error").textContent.indexOf('_') <0){
-        alert("Perdiste");
         perdedor = true;
         return  perdedor
     } else {
@@ -149,7 +141,10 @@ function verificarFinJuego(){
 // funcion para mostrar mensaje para fin del juego
 function mensajePerdedor(){
     if (verificarFinJuego()) {
-        alert("Fin del Juego!!")
+        document.querySelector("#perdedor").style.display = "flex";
+        setTimeout(() => {
+            reiniciarJuego()
+        },  8000);
     }
 }
 /*------------------------------------------------------------------------------*/
@@ -159,7 +154,6 @@ function mensajePerdedor(){
 function verificarGanador(){
     let ganador = false
     if(document.querySelector(".caja-secreto").textContent.indexOf('_') <0){
-        alert("Victoria");
         ganador = true;
         return  ganador
     } else {
@@ -172,7 +166,10 @@ function verificarGanador(){
 // funcion para mostrar mensaje ganador
 function mensajeGanador(){
     if (verificarGanador()) {
-        alert("Felicidades Ganaste!!")
+        document.querySelector("#ganador").style.display = "flex";
+        setTimeout(() => {
+            reiniciarJuego()
+        },  8000);
     }
 }
 /*------------------------------------------------------------------------------*/
@@ -184,5 +181,12 @@ function dibujarHorca(){
         cuerpo.item(index).style.display = "flex";
         index++;
     } 
+}
+/*------------------------------------------------------------------------------*/
+
+
+// funcion para reinicar pantalla
+function reiniciarJuego(){
+    window.location.href = 'http://127.0.0.1:5500/pantallajuego.html';
 }
 /*------------------------------------------------------------------------------*/
