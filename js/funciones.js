@@ -11,7 +11,13 @@ let keyValue;
 let palabra =  newLocal[Math.round(Math.random()*(newLocal).length)];
 let index = 0; 
 let cuerpo = document.getElementsByClassName("cuerpo");
-String.prototype.replaceAt=function(index, character) { return this.substr(0, index) + character + this.substr(index+character.length); }
+/*------------------------------------------------------------------------------*/
+
+
+// funcion reemplazar
+String.prototype.replaceAt=function(index, character) { 
+    return this.substr(0, index) + character + this.substr(index+character.length); 
+}
 /*------------------------------------------------------------------------------*/
 
 
@@ -23,7 +29,7 @@ function validarPalabra(){
     if (regexp.test(input)) {
         validar = true;
     } 
-    return validar
+    return validar;
 }
 /*------------------------------------------------------------------------------*/
 
@@ -57,7 +63,7 @@ function seleccionarPalabra(){
 // funcion para reemplazar con guiones palabra seleccionada
 function reemplazarConGuion(){
     let palabraConGuiones = seleccionarPalabra().replace(/./g, "_ ");
-    return palabraConGuiones
+    return palabraConGuiones;
 } 
 /*------------------------------------------------------------------------------*/
 
@@ -71,10 +77,10 @@ function mostrarEnPantalla(){
 
 // funcion salir del juego
 function salirDelJuego(){
-    let mensaje = confirm("Esta seguro que quiere abandonar el juego?")
+    let mensaje = confirm("Esta seguro que quiere abandonar el juego?");
     if(mensaje){
         return window.location.href = 'http://127.0.0.1:5500/index.html';
-    } 
+    }; 
 }
 /*------------------------------------------------------------------------------*/
 
@@ -85,18 +91,19 @@ function validarLetra(){
     keyValue = event.key;
     let regexp = /^[A-Z]+$/g;
     if (regexp.test(keyValue)) {
-        console.log(keyValue)
+        console.log(keyValue);
         if(dibujarLetraCorrecta()){
         mensajeGanador();
         }else{
-            alert("Entrada incorrecta");
             dibujarLetraIncorrecta();
             dibujarHorca();
             mensajePerdedor();
         }
-    } 
+    }else{
+        alert("Solo se puede juegar con mayúsculas");
+    }
   });
-};
+}
 /*------------------------------------------------------------------------------*/
 
 
@@ -108,14 +115,14 @@ function dibujarLetraCorrecta(){
         if(keyValue == palabra[i]){
             letraCorrecta.innerHTML = letraCorrecta.textContent.replaceAt(i*2, keyValue);
             correcto = true;
-        } 
-    }
+        }; 
+    };
     return correcto;
 }
 /*------------------------------------------------------------------------------*/
 
 
-// funcion para comprobar que la letra tecleada no esta incluida en la palabra secreta
+// funcion para agregar letra incorrecta al span de letras incorrectas
 function dibujarLetraIncorrecta(){
     let letraIncorrecta = document.querySelector(".caja-error");
     if(index < letraIncorrecta.textContent.length){
@@ -127,13 +134,13 @@ function dibujarLetraIncorrecta(){
 
 // funcion para verificar fin del juego
 function verificarFinJuego(){
-    let perdedor = false
+    let perdedor = false;
     if(document.querySelector(".caja-error").textContent.indexOf('_') <0){
         perdedor = true;
-        return  perdedor
+        return  perdedor;
     } else {
         return perdedor;
-    }
+    };
 }
 /*------------------------------------------------------------------------------*/
 
@@ -143,22 +150,22 @@ function mensajePerdedor(){
     if (verificarFinJuego()) {
         document.querySelector("#perdedor").style.display = "flex";
         setTimeout(() => {
-            reiniciarJuego()
-        },  8000);
-    }
+            reiniciarJuego();
+        },  5000);
+    };
 }
 /*------------------------------------------------------------------------------*/
 
 
 // funcion para verificar ganador
 function verificarGanador(){
-    let ganador = false
+    let ganador = false;
     if(document.querySelector(".caja-secreto").textContent.indexOf('_') <0){
         ganador = true;
-        return  ganador
+        return  ganador;
     } else {
         return ganador;
-    }
+    };
 }
 /*------------------------------------------------------------------------------*/
 
@@ -168,9 +175,9 @@ function mensajeGanador(){
     if (verificarGanador()) {
         document.querySelector("#ganador").style.display = "flex";
         setTimeout(() => {
-            reiniciarJuego()
-        },  8000);
-    }
+            reiniciarJuego();
+        },  5000);
+    };
 }
 /*------------------------------------------------------------------------------*/
 
@@ -180,12 +187,12 @@ function dibujarHorca(){
     if (index < cuerpo.length) {
         cuerpo.item(index).style.display = "flex";
         index++;
-    } 
+    }; 
 }
 /*------------------------------------------------------------------------------*/
 
 
-// funcion para reinicar pantalla
+// funcion para reinicar juego
 function reiniciarJuego(){
     window.location.href = 'http://127.0.0.1:5500/pantallajuego.html';
 }
