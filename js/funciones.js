@@ -70,7 +70,16 @@ function reemplazarConGuion(){
 
 // funcion para mostrar en pantalla palabra seleccionada y con guiones
 function mostrarEnPantalla(){
-    document.querySelector(".caja-secreto").innerHTML = reemplazarConGuion();
+    let palabraSecreta = document.querySelector(".caja-secreto")
+    if(palabraSecreta.textContent == ''){
+        palabraSecreta.innerHTML = reemplazarConGuion();
+    }else{
+        let mensaje = confirm("Esta seguro que quiere cambiar de palabra?");
+        if(mensaje){
+            window.location.href = 'http://127.0.0.1:5500/pantallajuego.html';
+            
+        }; 
+    }
 }
 /*------------------------------------------------------------------------------*/
 
@@ -89,8 +98,8 @@ function salirDelJuego(){
 function validarLetra(){
     document.addEventListener('keydown', (event) => {
     keyValue = event.key;
-    let regexp = /^[A-Z]+$/g;
-    if (regexp.test(keyValue)) {
+    let regExp = /^[A-Z]+$/g;
+    if (regExp.test(keyValue)) {
         console.log(keyValue);
         if(dibujarLetraCorrecta()){
         mensajeGanador();
