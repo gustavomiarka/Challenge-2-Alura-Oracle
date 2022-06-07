@@ -148,7 +148,7 @@ function mensajeGanador(){
         document.querySelector("#ganador").style.display = "flex";
         setTimeout(() => {
             reiniciarJuego();
-        },  15000);
+        },  5000);
     };
 }
 /*------------------------------------------------------------------------------*/
