@@ -119,11 +119,13 @@ function verificarFinJuego(){
 
 // funcion para mostrar mensaje para fin del juego
 function mensajePerdedor(){
+    let palabraSecreta = document.querySelector(".palabraSecreta");
     if (verificarFinJuego()) {
         document.querySelector("#perdedor").style.display = "flex";
+        palabraSecreta.innerHTML = "La palabra era " + palabra;
         setTimeout(() => {
             reiniciarJuego();
-        },  5000);
+        },  15000);
     };
 }
 /*------------------------------------------------------------------------------*/
@@ -148,7 +150,7 @@ function mensajeGanador(){
         document.querySelector("#ganador").style.display = "flex";
         setTimeout(() => {
             reiniciarJuego();
-        },  5000);
+        },  15000);
     };
 }
 /*------------------------------------------------------------------------------*/
@@ -171,7 +173,7 @@ function reiniciarJuego(){
 /*------------------------------------------------------------------------------*/
 
 // funcion 
-function removerListener(){
-    document.removeEventListener('keydown', Event);
-}
+// function removerListener(){
+//     document.removeEventListener('keydown', );
+// }
 /*------------------------------------------------------------------------------*/
