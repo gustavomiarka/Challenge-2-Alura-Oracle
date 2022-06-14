@@ -36,6 +36,7 @@ function mostrarEnPantalla(){
     let palabraSecreta = document.querySelector(".caja-secreto")
     if(palabraSecreta.textContent == ''){
         palabraSecreta.innerHTML = reemplazarConGuion();
+        document.addEventListener('keydown', list);
     }else{
         let mensaje = confirm("Esta seguro que quiere cambiar de palabra?");
         if(mensaje){
@@ -58,12 +59,10 @@ function salirDelJuego(){
 
 
 // funcion para verificar letra tecleada
-function validarLetra(){
-    document.addEventListener('keydown', (event) => {
+    let list = function(event) {
     keyValue = event.key;
     let regExp = /^[A-Z]+$/g;
     if (regExp.test(keyValue)) {
-        console.log(keyValue);
         if(dibujarLetraCorrecta()){
         mensajeGanador();
         }else{
@@ -74,8 +73,7 @@ function validarLetra(){
     }else{
         alert("Solo se puede juegar con mayúsculas");
     }
-  });
-}
+  };
 /*------------------------------------------------------------------------------*/
 
 
@@ -123,6 +121,7 @@ function mensajePerdedor(){
     if (verificarFinJuego()) {
         document.querySelector("#perdedor").style.display = "flex";
         palabraSecreta.innerHTML = "La palabra era " + palabra;
+        document.removeEventListener('keydown', list);
         setTimeout(() => {
             reiniciarJuego();
         },  15000);
@@ -148,6 +147,7 @@ function verificarGanador(){
 function mensajeGanador(){
     if (verificarGanador()) {
         document.querySelector("#ganador").style.display = "flex";
+        document.removeEventListener('keydown', list);
         setTimeout(() => {
             reiniciarJuego();
         },  15000);
@@ -170,10 +170,4 @@ function dibujarHorca(){
 function reiniciarJuego(){
     window.location.href = 'http://127.0.0.1:5500/pantallajuego.html';
 }
-/*------------------------------------------------------------------------------*/
-
-// funcion 
-// function removerListener(){
-//     document.removeEventListener('keydown', );
-// }
 /*------------------------------------------------------------------------------*/
